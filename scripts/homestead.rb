@@ -49,6 +49,9 @@ class Homestead
           if (site.has_key?("hhvm") && site["hhvm"])
             s.inline = "bash /vagrant/scripts/serve-hhvm.sh $1 $2"
             s.args = [site["map"], site["to"]]
+          else if (site.has_key?("silverstripe") && site["silverstripe"])
+            s.inline = "bash /vagrant/scripts/serve-silverstripe.sh $1 $2"
+            s.args = [site["map"], site["to"]]
           else
             s.inline = "bash /vagrant/scripts/serve.sh $1 $2"
             s.args = [site["map"], site["to"]]
